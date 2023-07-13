@@ -3,7 +3,7 @@ import { FakeValueService } from './value-fake.service';
 import { ValueService } from './value.service';
 import { TestBed } from '@angular/core/testing';
 
-fdescribe('MasterService', () => {
+describe('MasterService', () => {
   let masterService: MasterService;
   let valueServiceSpy: jasmine.SpyObj<ValueService>; // Tipamos un SpyObj con los elementos de ValueService
 
