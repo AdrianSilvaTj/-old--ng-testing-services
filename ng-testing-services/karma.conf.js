@@ -8,9 +8,12 @@ module.exports = function (config) {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
+      require("karma-firefox-launcher"),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
-      require('@angular-devkit/build-angular/plugins/karma')
+      require('@angular-devkit/build-angular/plugins/karma'),
+      // para mocha reporter
+      require('karma-mocha-reporter')
     ],
     client: {
       jasmine: {
@@ -30,10 +33,28 @@ module.exports = function (config) {
       reporters: [
         { type: 'html' },
         { type: 'text-summary' }
-      ]
+      ],
+      check: {
+        global:{
+          statements: 80,
+          branches: 80,
+          funtions: 80,
+          lines: 80,
+        }
+      }
     },
-    reporters: ['progress', 'kjhtml'],
-    browsers: ['Chrome'],
-    restartOnFileChange: true
+    // para mocha reporter
+    reporters: ['mocha'],
+    browsers: ["FirefoxHeadless"],
+    customLaunchers: {
+      FirefoxHeadless: {
+        base: 'Firefox',
+        flags: ['-new-tab'], // Opción para ejecutar Firefox en modo sin cabeza (headless)
+        prefs: {
+          'browser.link.open_newwindow': 3 // Configuración para abrir en una pestaña en lugar de una nueva ventana
+        }
+      },
+    },
+    restartOnFileChange: true,
   });
 };
