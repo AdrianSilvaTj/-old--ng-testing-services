@@ -20,7 +20,7 @@ export class ProductsComponent {
   }
 
   getAllProducts(){
-    this.productService.getAllSimple()
+    this.productService.getAll()
     .subscribe(products =>{
       this.products = products
     })
