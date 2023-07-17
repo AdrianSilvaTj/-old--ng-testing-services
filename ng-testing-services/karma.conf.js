@@ -45,10 +45,10 @@ module.exports = function (config) {
     },
     // para mocha reporter
     reporters: ['mocha'],
-    browsers: ["Firefox"],
+    browsers: ["Chrome"],
     customLaunchers: {
-      FirefoxHeadlessCI: {
-        base: 'Firefox',
+      ChromeHeadlessCI: {
+        base: 'Chrome',
         flags: ['--no-sandbox']
       },
     },
