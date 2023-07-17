@@ -21,7 +21,7 @@ import { TokenInterceptor } from '../interceptors/token.interceptor';
 import { TokenService } from './token.service';
 import { ProductService } from './product.service';
 
-fdescribe('ProductsService', () => {
+describe('ProductsService', () => {
   let productService: ProductService;
   let httpController: HttpTestingController;
   let tokenService: TokenService;
