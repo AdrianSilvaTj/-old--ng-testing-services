@@ -45,14 +45,11 @@ module.exports = function (config) {
     },
     // para mocha reporter
     reporters: ['mocha'],
-    browsers: ["FirefoxHeadless"],
+    browsers: ["Firefox"],
     customLaunchers: {
-      FirefoxHeadless: {
+      FirefoxHeadlessCI: {
         base: 'Firefox',
-        flags: ['-new-tab'], // Opción para ejecutar Firefox en modo sin cabeza (headless)
-        prefs: {
-          'browser.link.open_newwindow': 3 // Configuración para abrir en una pestaña en lugar de una nueva ventana
-        }
+        flags: ['--no-sandbox']
       },
     },
     restartOnFileChange: true,
